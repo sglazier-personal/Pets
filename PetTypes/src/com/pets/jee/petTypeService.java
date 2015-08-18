@@ -9,6 +9,8 @@ public class petTypeService {
 			animalType = "Smelly";
 		} else if ("Cat".equals(animal)) {
 			animalType = "Crazy";
+		} else if ("Mouse".equals(animal)) {
+			animalType = "Small";
 		} else {
 			animalType = "I don't know!";
 		}
