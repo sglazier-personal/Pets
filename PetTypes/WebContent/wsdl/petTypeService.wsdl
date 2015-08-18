@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://jee.pets.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://jee.pets.com" xmlns:intf="http://jee.pets.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://jee.pets.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="petType">
+    <complexType>
+     <sequence>
+      <element name="animal" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="petTypeResponse">
+    <complexType>
+     <sequence>
+      <element name="petTypeReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="petTypeResponse">
+
+      <wsdl:part element="impl:petTypeResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="petTypeRequest">
+
+      <wsdl:part element="impl:petType" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="petTypeService">
+
+      <wsdl:operation name="petType">
+
+         <wsdl:input message="impl:petTypeRequest" name="petTypeRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:petTypeResponse" name="petTypeResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="petTypeServiceSoapBinding" type="impl:petTypeService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="petType">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="petTypeRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="petTypeResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="petTypeServiceService">
+
+      <wsdl:port binding="impl:petTypeServiceSoapBinding" name="petTypeService">
+
+         <wsdlsoap:address location="http://localhost:8081/PetTypes/services/petTypeService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
